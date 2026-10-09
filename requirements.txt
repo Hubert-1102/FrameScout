@@ -1,0 +1,13 @@
+# Selector training and frame selection
+torch==2.4.1
+torchvision
+transformers==4.45.2
+numpy==1.26.4
+accelerate
+datasets
+pillow
+timm
+einops
+sentencepiece
+tqdm
+wandb

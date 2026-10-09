@@ -1,0 +1,13 @@
+# Downstream evaluation with Qwen2.5-VL (requires transformers >= 4.49)
+torch
+torchvision
+transformers>=4.49.0
+accelerate
+qwen-vl-utils
+datasets
+pandas
+pyarrow
+numpy
+pillow
+tqdm
+decord
