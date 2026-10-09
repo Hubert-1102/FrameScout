@@ -89,7 +89,6 @@ Training logs to Weights & Biases; set `WANDB_MODE=offline` to disable online lo
 Each selector (1) streams through every video once and caches query-agnostic frame embeddings, and
 (2) selects `K=60` frames per question, writing one folder of ordered frames per question.
 The default arguments follow the paper setting (`chunk_size=12`, `beta=0.3`, `K=60`).
-Top-`K` selection uses temporal non-maximum suppression: after a frame is selected, frames within a radius `r = max(8, floor(nms_ratio * N))` are suppressed (`--nms_ratio`, default 0.04), and the remaining budget is filled with the highest-scoring unselected frames.
 
 ```bash
 cd inference
@@ -117,22 +116,3 @@ cd eval/longvideobench && python qwen2_5_longvideobench.py \
   --frames_path ../../inference/selected/longvb --num_gpus 8
 ```
 
-## Checkpoints
-
-Pretrained FrameScout selector checkpoints: coming soon.
-
-## Citation
-
-```bibtex
-@inproceedings{hu2026framescout,
-  title     = {FrameScout: Scouting Query-Relevant Frames for Long Video Understanding},
-  author    = {Hu, Haonan and Chen, Shuhao and Jiang, Weisen and Gao, Lizhao and Kwok, James and Zhang, Yu},
-  booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026}
-}
-```
-
-## Acknowledgements
-
-This codebase builds on [InternVL](https://github.com/OpenGVLab/InternVL),
-[Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL), and [FlexSelect](https://github.com/yunzhuzhang0918/flexselect).
